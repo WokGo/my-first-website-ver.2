@@ -1,0 +1,56 @@
+/* Basic layout for auth pages */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 30px 24px;
+}
+
+.auth-box {
+  max-width: 520px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.auth-box h2 { margin-top: 0; color:#2b3b43; }
+
+.auth-form .form-row { margin-bottom: 14px; display:flex; flex-direction:column; }
+.auth-form .form-row label { font-weight:600; margin-bottom:6px; color:#33464e; }
+.auth-form .form-row input[type="text"],
+.auth-form .form-row input[type="email"],
+.auth-form .form-row input[type="password"] {
+  padding: 10px;
+  border: 1px solid #dfe8eb;
+  border-radius: 4px;
+  font-size: 15px;
+  background: #fafafa;
+}
+
+.form-row-inline { display:flex; align-items:center; }
+
+.primary {
+  display:inline-block;
+  background:#007bff;
+  color:#ffffff;
+  border:none;
+  padding:10px 14px;
+  border-radius:4px;
+  cursor:pointer;
+  text-decoration:none;
+}
+.secondary {
+  display:inline-block;
+  margin-left:10px;
+  color:#2b3b43;
+  text-decoration:none;
+}
+
+.muted { color:#556368; margin-top:12px; }
+
+.error-message {
+  color:#c92a2a;
+  margin-top:6px;
+  font-size:14px;
+}

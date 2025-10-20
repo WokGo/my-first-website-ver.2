@@ -1,0 +1,42 @@
+/* Header / Navigation styles */
+.site-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2f3f48;
+  color: #fff;
+  padding: 12px 24px;
+}
+.site-header-nav .brand a {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+}
+.site-header-nav .main-nav {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+.site-header-nav .main-nav a {
+  color: #e6eef2;
+  text-decoration: none;
+}
+.auth-actions { display:flex; gap:10px; align-items:center; }
+.auth-btn {
+  background: transparent;
+  color: #e6eef2;
+  border: 1px solid rgba(230,238,242,0.08);
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.auth-btn:hover { background: rgba(255,255,255,0.04); }
+.welcome { color:#cfe7ee; margin-right:8px; }
+@media (max-width: 700px) {
+  .site-header-nav { flex-wrap:wrap; gap:8px; }
+  .main-nav { gap:10px; overflow:auto; }
+}
