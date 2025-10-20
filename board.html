@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>게시판</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Miogun</div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="board.html">Board</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>게시판</h1>
+        <form id="postForm">
+            <input type="text" id="author" placeholder="작성자" required />
+            <input type="text" id="title" placeholder="제목" required />
+            <textarea id="content" placeholder="내용" required></textarea>
+            <button type="submit">글 등록</button>
+        </form>
+        <hr>
+        <h2>게시글 목록</h2>
+        <div id="posts"></div>
+    </main>
+
+    <script>
+        const postForm = document.getElementById('postForm');
+        const postsDiv = document.getElementById('posts');
+        let posts = JSON.parse(localStorage.getItem('boardPosts') || '[]');
+
+        // 게시글 화면에 출력
+        function renderPosts() {
+            postsDiv.innerHTML = '';
+            posts.slice().reverse().forEach((post, idx) => {
+                const el = document.createElement('div');
+                el.className = 'post-card';
+                el.innerHTML = `
+                    <strong>${post.title}</strong> - ${post.author}<br>
+                    <div>${post.content}</div>
+                    <hr>
+                `;
+                postsDiv.appendChild(el);
+            });
+        }
+
+        // 글 등록 이벤트
+        postForm.onsubmit = (e) => {
+            e.preventDefault();
+            const author = document.getElementById('author').value.trim();
+            const title = document.getElementById('title').value.trim();
+            const content = document.getElementById('content').value.trim();
+            if (author && title && content) {
+                posts.push({ author, title, content });
+                localStorage.setItem('boardPosts', JSON.stringify(posts));
+                postForm.reset();
+                renderPosts();
+            }
+        };
+
+        // 페이지 로드 시 게시글 표시
+        renderPosts();
+    </script>
+  <script src="js/board.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
